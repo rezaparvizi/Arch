@@ -4,6 +4,10 @@ import java.util.StringTokenizer;
 import org.apache.hadoop.io.*;
 import org.apache.hadoop.mapred.*;
 
+/*
+<long, text> -> <int, text>
+ */
+
 public class mapper1 extends MapReduceBase implements Mapper<LongWritable, Text, IntWritable, Text> {
 
     private IntWritable customerId = new IntWritable();

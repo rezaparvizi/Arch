@@ -1,6 +1,4 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -23,5 +21,23 @@ public class Utils {
         scanner.close();
 
         return movies;
+    }
+
+
+    public static void moveFiles(String path) {
+        File file = new File(path);
+        File[] files = file.listFiles(new FileFilter() {
+            public boolean accept(File pathname) {
+                return pathname.getName().startsWith("part");
+            }
+        });
+
+        if (path.endsWith("output1")) {
+            for (File f : files)
+                f.renameTo(new File("/Users/user/Documents/MovieRecommender/MovieRecommenderData/CIdAndMratings.txt"));
+        } else {
+            for (File f : files)
+                f.renameTo(new File("/Users/user/Documents/MovieRecommender/MovieRecommenderData/Similarity.txt"));
+        }
     }
 }

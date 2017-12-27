@@ -26,6 +26,7 @@ public class MovieRecommender {
      */
     public static void main(String[] args) {
 
+
         fillData();
         menu();
     }
